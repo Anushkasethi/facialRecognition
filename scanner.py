@@ -1,5 +1,4 @@
 import cv2
-import face_recognition
 import numpy as np
 import time
 import firebase_admin
@@ -8,7 +7,15 @@ import streamlit as st
 from ultralytics import YOLO
 import cv2
 import os
-import json
+# import json
+import subprocess
+whl_path = './libs/dlib-19.22.99-cp39-cp39-win_amd64.whl'
+
+# Install dlib if the wheel file exists
+if os.path.exists(whl_path):
+    subprocess.check_call([f"pip install {whl_path}"])
+    
+import face_recognition
 
 firebase_config = st.secrets["firebase"]
 firebase_credentials = {key: firebase_config[key] for key in firebase_config.keys()}
