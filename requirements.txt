@@ -1,0 +1,9 @@
+streamlit
+opencv-python
+numpy
+firebase-admin
+face-recognition
+torch
+torchvision
+ultralytics
+python-dotenv
