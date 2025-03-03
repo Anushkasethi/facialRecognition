@@ -9,16 +9,14 @@ from ultralytics import YOLO
 import cv2
 import os
 import json
-# from dotenv import load_dotenv
-# load_dotenv()
-# firebase_key = os.getenv("FIREBASE_KEY")
-firebase_credentials = json.loads(st.secrets["FIREBASE_CREDENTIALS"])
+
+firebase_config = st.secrets["firebase"]
+firebase_credentials = {key: firebase_config[key] for key in firebase_config.keys()}
 
 # Initialize Firebase
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_credentials)
     firebase_admin.initialize_app(cred)
-
 db = firestore.client()
 
 if "face_encoding" not in st.session_state:
