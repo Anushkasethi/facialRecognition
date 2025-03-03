@@ -2,6 +2,7 @@ streamlit
 opencv-python
 numpy
 firebase-admin
+dlib
 face-recognition
 torch
 torchvision
